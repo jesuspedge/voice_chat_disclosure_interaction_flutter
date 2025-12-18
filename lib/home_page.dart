@@ -6,21 +6,21 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFF4FACFE),
-                Color(0xFF00F2FE),
-                Color(0xFF38F9D7),
-              ],
-            ),
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF4FACFE),
+              Color(0xFF00F2FE),
+              Color(0xFF38F9D7),
+            ],
           ),
-          child: const Center(
+        ),
+        child: const SafeArea(
+          child: Center(
             child: VoiceChat(),
           ),
         ),

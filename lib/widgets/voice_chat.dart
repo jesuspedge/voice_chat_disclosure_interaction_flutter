@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class _VoiceChatState extends State<VoiceChat>
           height: isOpen ? 340 : 60,
           width: isOpen ? 300 : 210,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.95),
+            color: Colors.white.withAlpha(250),
             border: Border.all(color: Colors.black12),
             borderRadius: const BorderRadius.all(Radius.circular(25)),
             boxShadow: const [
@@ -90,7 +91,7 @@ class _VoiceChatState extends State<VoiceChat>
                           ),
                           GestureDetector(
                             onTap: () {
-                              animationController.reverse();
+                              unawaited(animationController.reverse());
                               setState(() => isOpen = false);
                             },
                             child: const Icon(
@@ -184,7 +185,9 @@ class _VoiceChatState extends State<VoiceChat>
                                 : (index <= 3)
                                     ? GestureDetector(
                                         onTap: () {
-                                          animationController.forward();
+                                          unawaited(
+                                            animationController.forward(),
+                                          );
                                           setState(() => isOpen = true);
                                         },
                                         child: Stack(
@@ -216,7 +219,7 @@ class _VoiceChatState extends State<VoiceChat>
                           scrollDirection: Axis.horizontal,
                           child: GestureDetector(
                             onTap: () {
-                              animationController.forward();
+                              unawaited(animationController.forward());
                               setState(() => isOpen = true);
                             },
                             child: Row(
